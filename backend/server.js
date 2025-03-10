@@ -32,9 +32,9 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Estrategia Google
 passport.use(new GoogleStrategy({
-    clientID: process.env.887321296432-b34dm2hrhoom6e10tlvs1rsf08fi102j.apps.googleusercontent.com,
-    clientSecret: process.env.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W,
-    callbackURL: process.env.https://taxi-backend-v2.onrender.com/auth/google/callback
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: process.env.GOOGLE_CALLBACK_URL
 }, async (accessToken, refreshToken, profile, done) => {
     try {
         let user = await User.findOne({ email: profile.emails[0].value });
